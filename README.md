@@ -1,7 +1,8 @@
 
 # BLOG WAGTAIL
 
-BORRADOR
+## BORRADOR
+
 El proyecto consistirá en una web a partir de la web hecha en clase (fork del tutorial de wagtail)
 
 Se finalizará la estructura iniciada:
