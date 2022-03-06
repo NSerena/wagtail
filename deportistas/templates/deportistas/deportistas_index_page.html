@@ -1,0 +1,161 @@
+{% extends "base.html" %}
+
+{% load wagtailcore_tags static %}
+
+
+
+
+{% block content %}
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+<style>
+    th{ 
+        color:#fff;
+            }
+</style>
+
+<h1 class="page-title">{{ page.title }}</h1><br>
+
+<p>Listado de las mejores deportistas cada año:</p>
+
+<table class="table table-striped">
+    <tr  class="bg-info">
+        <th>AÑO</th>
+        <th>NOMBRE</th>
+        <th>DEPORTE</th>
+    </tr>
+
+    <tbody id="myTable">
+        
+    </tbody>
+</table>
+
+<script>
+	var myArray = [
+    {
+        "año": "2000",
+        "nombre": "Tiger Woods",
+        "deporte": "Golf"
+    },{
+        "año": "2001",
+        "nombre": "Tiger Woods",
+        "deporte": "Golf"
+    },{
+        "año": "2002",
+        "nombre": "Michael Schumacher",
+        "deporte": "Automovilismo"
+    },{
+        "año": "2003",
+        "nombre": "Lance Amstrong",
+        "deporte": "Golf"
+    },{
+        "año": "2004",
+        "nombre": "Michael Schumacher",
+        "deporte": "Automovilismo"
+    },{
+        "año": "2005",
+        "nombre": "Roger Federer",
+        "deporte": "Tenis"
+    },{
+        "año": "2006",
+        "nombre": "Roger Federer",
+        "deporte": "Tenis"
+    },{
+        "año": "2007",
+        "nombre": "Roger Federer",
+        "deporte": "Tenis"
+    },{
+        "año": "2009",
+        "nombre": "Usain Bolt",
+        "deporte": "Atletismo"
+    },{
+        "año": "2010",
+        "nombre": "Usain Bolt",
+        "deporte": "Atletismo"
+    },{
+        "año": "2011",
+        "nombre": "Rafael Nadal",
+        "deporte": "Tenis"
+    },{
+        "año": "2012",
+        "nombre": "Novak Djokovic",
+        "deporte": "Tenis"
+    },{
+        "año": "2013",
+        "nombre": "Usain Bolt",
+        "deporte": "Atletismo"
+    },{
+        "año": "2014",
+        "nombre": "Sebastian Vettel",
+        "deporte": "Automovilismo"
+    },{
+        "año": "2015",
+        "nombre": "Novak Djokovic",
+        "deporte": "Tenis"
+    },{
+        "año": "2016",
+        "nombre": "Novak Djokovic",
+        "deporte": "Tenis"
+    },{
+        "año": "2017",
+        "nombre": "Usain Bolt",
+        "deporte": "Atletismo"
+    },{
+        "año": "2018",
+        "nombre": "Roger Federer",
+        "deporte": "Tenis"
+    },{
+        "año": "2019",
+        "nombre": "Novak Djokovic",
+        "deporte": "Tenis"
+    },{
+        "año": "2020",
+        "nombre": "Lionel Messi",
+        "deporte": "Fútbol"
+    },{
+        "año": "2021",
+        "nombre": "Rafael Nadal",
+        "deporte": "Tenis"
+    }
+   
+]
+	
+	buildTable(myArray)
+
+
+
+	function buildTable(data){
+		var table = document.getElementById('myTable')
+
+		for (var i = 0; i < data.length; i++){
+			var row = `<tr>
+							<td>${data[i].año}</td>
+							<td>${data[i].nombre}</td>
+							<td>${data[i].deporte}</td>
+					  </tr>`
+			table.innerHTML += row
+
+
+		}
+	}
+
+</script>
+{% endblock %}
+{% block extra_css %}
+<!--FONTS-->
+<link rel="dns-prefetch" href="//fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+
+<!--STYLES-->
+<link rel="stylesheet" href="../../../blogclase/static/css/app.css" >
+<link rel="stylesheet" href="../../../blogclase/static/css/front.css" >
+<link rel="stylesheet" href="https://www.todostuslibros.com/css/fontawesome-5.12.0/css/all.min.css">
+{% endblock %}
+
+
+{% block extra_js %}
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" defer></script>
+{% endblock %}

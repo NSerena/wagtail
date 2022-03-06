@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+
+{% load wagtailcore_tags wagtailimages_tags blog_tags %}
+
+{% block body_class %}template-blogpage{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1>{{ page.title }}</h1>
+    <p class="meta">{{ page.date }}</p>
+
+
+    <div class="intro">{{ page.intro }}</div>
+
+    {{ page.body|richtext }}
+
+    <div class="row">
+        {% for item in page.gallery_images.all %}
+        <div class="col-md-3">
+            {% image item.image fill-320x240 %}
+            <p>{{ item.caption }}</p>
+        </div>
+        {% endfor %}
+    </div>
+
+    <!-- Categorías-->
+    {% with categories=page.categories.all %}
+    {% if categories %}
+    <h3>Publicado en :</h3>
+    <ul>
+        {% for category in categories %}
+        <a href="../?categoria={{ category.name }}">
+            <li style="display: inline">
+                <h4>{{ category.name }}</h4>
+                {% image category.icon fill-48x48 style="vertical-align: middle" %}
+            </li>
+        </a>
+        {% endfor %}
+    </ul>
+    {% endif %}
+    {% endwith %}
+    <hr>
+
+    {% if page.tags.all.count %}
+    <div class="tags">
+        <h3>Tags</h3>
+        {% for tag in page.tags.all %}
+        <a href="{% slugurl 'tags' %}?tag={{ tag }}"><button type="button">{{ tag }}</button></a>
+        {% endfor %}
+    </div>
+    {% endif %}
+    <p><a href="{{ page.get_parent.url }}">Volver al blog</a></p>
+</div>
+
+
+{% endblock %}

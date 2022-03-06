@@ -1,0 +1,8 @@
+
+*pyc
+env
+data.json
+*.bak
+dump.sh
+nohup*
+static
