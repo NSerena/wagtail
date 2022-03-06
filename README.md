@@ -1,10 +1,7 @@
-# tutorial_wagtail
 
+# BLOG WAGTAIL
 
-# PAGINA WEB HECHA CON WAGTAIL
-
-
-# BORRADOR
+BORRADOR
 El proyecto consistirá en una web a partir de la web hecha en clase (fork del tutorial de wagtail)
 
 Se finalizará la estructura iniciada:
@@ -35,5 +32,3 @@ Script para generar la sección.
 Posibilidad de edición en un grupo del Admin justo debajo de las películas.
 Creación de un tipo de páginas para la sección (index y de detalle)
 Estas páginas podrán colgar de la principal (sólo el index)
-
-
