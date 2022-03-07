@@ -177,39 +177,7 @@ class PeliculaPage(Page):
 
     parent_page_types = ['blog.BlogIndexPage']
     subpage_types = []
-
-
-class MusicaPage(Page):
-    lugar = models.CharField(max_length=30)
-    intro = models.CharField("Introducción", max_length=250, blank=True, null=True)
-    body = RichTextField(blank=True)
-    imagen = models.URLField(blank=True)
-
-    categories = ParentalManyToManyField('blog.BlogCategory', blank=True)
-
-    search_fields = Page.search_fields + [
-        index.SearchField('intro'),
-        index.SearchField('body'),
-    ]
-
-    content_panels = Page.content_panels + [
-        MultiFieldPanel([
-            FieldPanel('categories', widget=forms.CheckboxSelectMultiple),
-            ],
-            heading='Información'
-        ),
-        FieldPanel('lugar'),
-        FieldPanel('intro'),
-        FieldPanel('imagen'),
-        FieldPanel('body', classname="full"),
-
-    ]
-
-    parent_page_types = ['blog.BlogIndexPage']
-    subpage_types = []
-
-    
-    
+   
 
 class DeportePage(Page):
     lugar = models.CharField(max_length=30)

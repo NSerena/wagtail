@@ -100,12 +100,3 @@ class PelisIndexPage(Page):
 
         
         return context
-    
-    
-
-
-
-
-
-
-    

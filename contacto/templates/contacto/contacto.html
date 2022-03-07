@@ -7,44 +7,39 @@
 {% block content %}
 
 <div class="container">
-    <div class="row justify-content-center title-block-text">
-        <div class="col-md-8">
+  <div class="row justify-content-center title-block-text">
+    <div class="col-md-8">
 
 
-            <h1 class="page-title">{{ page.title }}</h1>
-
-            <p>{{ page.descripcion }}</p>
-        </div>
-    </div>
-
-
-    <div class="row justify-content-center">
-        <div class="col-11 col-md-4">
-            <form>
-                <div class="form-group row">
-                    <label for="inputPassword3" class="col-sm-2 col-form-label">TLF:</label>
-                    <div class="col-sm-10">
-                      <input type="password" class="form-control" id="inputPassword3" placeholder="Telefono">
-                    </div>
-                  </div>
-                <br> 
-                <div class="form-group row">
-                  <label for="inputPassword3" class="col-sm-2 col-form-label">Email:</label>
-                  <div class="col-sm-10">
-                    <input type="password" class="form-control" id="inputPassword3" placeholder="Email">
-                  </div>
-                </div>
-                <br> 
-                <div class="form-group row">
-                  <div class="col-sm-10">
-                    <button type="submit" class="btn btn-primary">Contacta con nosotros</button>
-                  </div>
-                </div>
-              </form>
-        </div>
-        <br>
+      <h1 class="page-title">{{ page.title }}</h1>
 
     </div>
+  </div>
+
+
+  <div class="row justify-content-center">
+    <div class="col-md-4">
+      <form>
+        <div>
+          <label for="nombre">Nombre:</label>
+          <div class="col-sm-12">
+            <input type="text" id="nombre" placeholder="Nombre" required>
+          </div>
+          <label for="email">Email:</label>
+          <div class="col-sm-12">
+            <input type="mail" id="email" placeholder="email" required>
+          </div>
+          <label for="msg">Mensaje:</label><br>
+          <textarea id="msg" placeholder="Escribe tu mensaje:" required></textarea>
+          <div class="col-sm-12">
+            <button type="submit">Enviar</button>
+          </div>
+        </div>
+      </form>
+    </div>
+    <br>
+
+  </div>
 
 </div>
 

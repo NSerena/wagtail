@@ -7,15 +7,7 @@ from wagtail.core.models import Page
 from wagtail.core.fields import RichTextField
 from wagtail.admin.edit_handlers import FieldPanel
 
-from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
-
 # Create your models here.
-
-
-
-
-
-# Modelo de página de deportistas
 class RankingPage(Page):
     introduccion = RichTextField(blank=True)
 
