@@ -7,9 +7,6 @@
 {% block content %}
 <div class="container">
     <h1>{{ page.title }}</h1>
-    <p class="meta">{{ page.date }}</p>
-
-
     <div class="intro">{{ page.intro }}</div>
 
     {{ page.body|richtext }}
@@ -22,30 +19,13 @@
         </div>
         {% endfor %}
     </div>
-
-    <!-- Categorías-->
-    {% with categories=page.categories.all %}
-    {% if categories %}
-    <h3>Publicado en :</h3>
-    <ul>
-        {% for category in categories %}
-        <a href="../?categoria={{ category.name }}">
-            <li style="display: inline">
-                <h4>{{ category.name }}</h4>
-                {% image category.icon fill-48x48 style="vertical-align: middle" %}
-            </li>
-        </a>
-        {% endfor %}
-    </ul>
-    {% endif %}
-    {% endwith %}
     <hr>
 
     {% if page.tags.all.count %}
     <div class="tags">
         <h3>Tags</h3>
         {% for tag in page.tags.all %}
-        <a href="{% slugurl 'tags' %}?tag={{ tag }}"><button type="button">{{ tag }}</button></a>
+        <ol>{{ tag }}</ol>
         {% endfor %}
     </div>
     {% endif %}
