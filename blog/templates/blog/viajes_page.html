@@ -16,7 +16,6 @@
 {% block content %}
 <div class="container">
     <h1>Viaje a {{ page.title }}</h1>
-    <p class="meta">{{ page.date }}</p>
 
     <p class="meta">{{ page.intro }}</p>
 
@@ -26,10 +25,14 @@
 
     {{ page.body|richtext }}
 
-    
+
     <br>
 
-    <div id="map" style="height: 250px;"></div>
+    <div id="map" style="height: 250px;">
+        <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d23216.43031451245!2d-1.8092141674695816!3d43.334063479837994!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd51088ba8674817%3A0x86ff9f9180d14bb8!2zSXLDum4sIEdpcHV6a29h!5e0!3m2!1ses!2ses!4v1646668012152!5m2!1ses!2ses"
+            width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+    </div>
 
     <hr>
 
@@ -56,17 +59,6 @@
     integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
     crossorigin=""></script>
 <script>
-    var map = L.map('map').setView([{{ page.coord }}], 11);
-
-    L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
-        attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-        maxZoom: 18,
-        id: 'mapbox/streets-v11',
-        tileSize: 512,
-        zoomOffset: -1,
-        accessToken: 'pk.eyJ1Ijoidml0bzAwIiwiYSI6ImNsMDZnZmZjejEwaGMza3BkdjdrMWJsdmwifQ.q6Tv9r6T0WBhjRwId7pnaA'
-    }).addTo(map);
-
 
 
 </script>

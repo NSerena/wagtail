@@ -8,12 +8,6 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 
 # Create your models here.
-
-## Page que mostrará el index de las películas
-## Hereda solo de Home y no descendientes
-
-
-# Modelo Género Pelicula
 class Genre(models.Model):
     nombre = models.CharField(max_length=50, unique=True)
     def __str__(self):
@@ -26,8 +20,6 @@ class Genre(models.Model):
         verbose_name_plural = 'Géneros'
 
 
-
-## Modelo para películas
 class Pelicula(models.Model):
     title = models.CharField('título', max_length=250)
     slug = models.SlugField(blank=True)
