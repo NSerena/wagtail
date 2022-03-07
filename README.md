@@ -36,4 +36,11 @@ Posibilidad de edición en un grupo del Admin justo debajo de las películas.
 Creación de un tipo de páginas para la sección (index y de detalle)
 Estas páginas podrán colgar de la principal (sólo el index)
 
+# PASOS
+(si no tienes entorno)
+py -m venv env
+cd \env\Scripts\activate
+(volver a directorio superior)
+pip install -r requirements.txt
+py manage.py runserver
 
