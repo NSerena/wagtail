@@ -48,7 +48,7 @@ class BlogIndexPage(Page):
         return context
 
     parent_page_types = ['wagtailcore.Page']
-    subpage_types = ['BlogPage', 'ViajesPage', 'MusicaPage','DeportePage','PeliculaPage']
+    subpage_types = ['BlogPage', 'ViajesPage', 'DeportePage','PeliculaPage']
 
 
 
