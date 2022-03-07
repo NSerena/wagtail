@@ -24,14 +24,6 @@ BASE_DIR = os.path.dirname(PROJECT_DIR)
 # Application definition
 
 INSTALLED_APPS = [
-    'home',
-    'search',
-    'blog',
-    'pelis',
-    'contacto',
-    'noticias',
-    'deportistas',
-    
 
     'wagtail.contrib.forms',
     'wagtail.contrib.redirects',
@@ -56,6 +48,15 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'wagtail.contrib.modeladmin',
     'wagtail.contrib.styleguide',
+
+    'home',
+    'search',
+    'blog',
+    'pelis',
+    'ranking',
+    'contacto',
+    'noticias',
+
 ]
 
 MIDDLEWARE = [

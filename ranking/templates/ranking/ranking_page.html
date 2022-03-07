@@ -1,0 +1,161 @@
+{% extends "base.html" %}
+
+{% load wagtailcore_tags static %}
+
+{% block content %}
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+<h2>TOP 15 EQUIPOS SEGUN BALANCE VICTORIA-DERROTA DE LA NBA</h2>
+
+<table class="table table-striped">
+    <tr  class="bg-info">
+        <th>POS.</th>
+        <th>EQUIPO</th>
+        <th>GANADOS</th>
+        <th>PERDIDOS</th>
+        <th>PORCENTAJE</th>
+    </tr>
+
+    <tbody id="myTable">
+        
+    </tbody>
+</table>
+
+<script>
+	var datos = [
+    {
+        "pos":"1",
+        "equipo": "San Antonio Spurs",
+        "ganados": "2227",
+        "perdidos": "1394",
+        "porcentaje":"61.5%"
+    },
+    {
+        "pos":"2",
+        "equipo": "Los Angeles Lakers",
+        "ganados": "3427",
+        "perdidos": "2331",
+        "porcentaje":"59.5%"
+    },{
+        "pos":"3",
+        "equipo": "Boston Celtics",
+        "ganados": "3462",
+        "perdidos": "2406",
+        "porcentaje":"59%"
+    },{
+        "pos":"4",
+        "equipo": "Utah Jazz",
+        "ganados": "2060",
+        "perdidos": "1726",
+        "porcentaje":"54.4%"
+    },{
+        "pos":"5",
+        "equipo": "Oklahoma City Thunder",
+        "ganados": "2349",
+        "perdidos": "2011",
+        "porcentaje":"53.9%"
+    },{
+        "pos":"6",
+        "equipo": "Portland Trail Blazers",
+        "ganados": "2211",
+        "perdidos": "1905",
+        "porcentaje":"53.7%"
+    },{
+        "pos":"7",
+        "equipo": "Phoenix Suns",
+        "ganados": "2271",
+        "perdidos": "2008",
+        "porcentaje":"53.1%"
+    },{
+        "pos":"8",
+        "equipo": "Houston Rockets",
+        "ganados": "2286",
+        "perdidos": "2074",
+        "porcentaje":"52.9%"
+    },{
+        "pos":"9",
+        "equipo": "Miami Heat",
+        "ganados": "1378",
+        "perdidos": "1261",
+        "porcentaje":"52.2%"
+    },{
+        "pos":"10",
+        "equipo": "Milwaukee Bucks",
+        "ganados": "2231",
+        "perdidos": "2048",
+        "porcentaje":"52.1%"
+    },{
+        "pos":"11",
+        "equipo": "Philadelphia 76ers",
+        "ganados": "2949",
+        "perdidos": "2746",
+        "porcentaje":"51.8%"
+    },{
+        "pos":"12",
+        "equipo": "Chicago Bulls",
+        "ganados": "2258",
+        "perdidos": "2176",
+        "porcentaje":"50.9%"
+    },{
+        "pos":"13",
+        "equipo": "Indiana Pacers",
+        "ganados": "1823",
+        "perdidos": "1799",
+        "porcentaje":"50.3%"
+    },{
+        "pos":"14",
+        "equipo": "Dallas Mavericks",
+        "ganados": "1657",
+        "perdidos": "1640",
+        "porcentaje":"50.3%"
+    },{
+        "pos":"15",
+        "equipo": "Denver Nuggets",
+        "ganados": "1796",
+        "perdidos": "1827",
+        "porcentaje":"49.6%"
+    }
+   
+]
+	
+	buildTable(datos)
+
+
+
+	function buildTable(data){
+		var table = document.getElementById('myTable')
+
+		for (var i = 0; i < data.length; i++){
+			var row = `<tr>
+                            <td>${data[i].pos}</td>
+							<td>${data[i].equipo}</td>
+							<td>${data[i].ganados}</td>
+							<td>${data[i].perdidos}</td>
+                            <td>${data[i].porcentaje}</td>
+					  </tr>`
+			table.innerHTML += row
+
+
+		}
+	}
+
+</script>
+{% endblock %}
+{% block extra_css %}
+<!--FONTS-->
+<link rel="dns-prefetch" href="//fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+
+<!--STYLES-->
+<link rel="stylesheet" href="../../../blogclase/static/css/app.css" >
+<link rel="stylesheet" href="../../../blogclase/static/css/front.css" >
+<link rel="stylesheet" href="https://www.todostuslibros.com/css/fontawesome-5.12.0/css/all.min.css">
+{% endblock %}
+
+
+{% block extra_js %}
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" defer></script>
+{% endblock %}

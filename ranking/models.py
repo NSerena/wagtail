@@ -1,4 +1,7 @@
+from re import template
 from django.db import models
+
+# Create your models here.
 
 from wagtail.core.models import Page 
 from wagtail.core.fields import RichTextField
@@ -13,24 +16,11 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 
 # Modelo de página de deportistas
-class DeportistasIndexPage(Page):
+class RankingPage(Page):
     introduccion = RichTextField(blank=True)
+
 
     content_panels = Page.content_panels + [
         FieldPanel('introduccion', classname="full")
     ]
-
-    def paginate(self, request, deportistas, *args):
-        page = request.GET.get('page')
-
-        paginator = Paginator(deportistas, 10)
-
-        try:
-            pages = paginator.page(page)
-        except PageNotAnInteger:
-            pages = paginator.page(1)
-        except EmptyPage:
-            pages = paginator.page(paginator.num_pages)
-        return pages
-
 
