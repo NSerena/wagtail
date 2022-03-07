@@ -38,9 +38,14 @@ Estas páginas podrán colgar de la principal (sólo el index)
 
 # PASOS
 (si no tienes entorno)
+
 py -m venv env
+
 cd \env\Scripts\activate
+
 (volver a directorio superior)
+
 pip install -r requirements.txt
+
 py manage.py runserver
 
