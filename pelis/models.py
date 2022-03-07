@@ -8,12 +8,6 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 
 # Create your models here.
-
-## Page que mostrará el index de las películas
-## Hereda solo de Home y no descendientes
-
-
-# Modelo Género Pelicula
 class Genre(models.Model):
     nombre = models.CharField(max_length=50, unique=True)
     def __str__(self):
@@ -24,10 +18,6 @@ class Genre(models.Model):
     class Meta:
         verbose_name = 'Género'
         verbose_name_plural = 'Géneros'
-
-
-
-## Modelo para películas
 class Pelicula(models.Model):
     title = models.CharField('título', max_length=250)
     slug = models.SlugField(blank=True)
@@ -57,9 +47,6 @@ class Pelicula(models.Model):
     def __str__(self):
         return f'{self.title} ({self.year})'
 
-
-
-
 class PelisIndexPage(Page):
     introduccion = RichTextField(blank=True)
 
@@ -80,8 +67,6 @@ class PelisIndexPage(Page):
             pages = paginator.page(paginator.num_pages)
         return pages
 
-
-
     def get_context(self, request):
         # Update context to include only published posts, ordered by reverse-chron
         context = super().get_context(request)
@@ -98,5 +83,4 @@ class PelisIndexPage(Page):
         context['peliculas'] = Pelicula.objects.all().order_by('-rating')
         context['qs'] = qs
 
-        
         return context
