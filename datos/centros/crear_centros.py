@@ -11,25 +11,25 @@ from centros.models import Centro
 import json
 import os
 # borrar centros
-for p in Centro.objects.all():
-    p.delete()
+for c in Centro.objects.all():
+    c.delete()
 
 #lista de centros del json
 if os.path.exists("datos/centros/centros.json"):
-    pelis = json.load(open("datos/centros/centros.json", encoding='utf-8'))
+    centros = json.load(open("datos/centros/centros.json", encoding='utf-8'))
 else:
-    pelis = json.load(open("centros.json", encoding='utf-8'))
+    centros = json.load(open("centros.json", encoding='utf-8'))
 
 
-for p1 in pelis:
-    p = Centro()
-    p.objectid = p1["objectid"]
-    p.nombreCentro = p1["nombre_cen"]
-    p.tipoCentro = p1["tipo_centr"]
-    p.naturaleza = p1["naturaleza"]
-    p.localidad = p1["localidad"]
-    p.direccion = p1["direccion"]
-    p.codpostal = p1["codpostal"]
-    p.long = p1["longitud"]
-    p.lat = p1["latitud"]
-    p.save()
+for c1 in centros:
+    c = Centro()
+    c.objectid = c1["objectid"]
+    c.nombreCentro = c1["nombre_cen"]
+    c.tipoCentro = c1["tipo_centr"]
+    c.naturaleza = c1["naturaleza"]
+    c.localidad = c1["localidad"]
+    c.direccion = c1["direccion"]
+    c.codpostal = c1["codpostal"]
+    c.long = c1["longitud"]
+    c.lat = c1["latitud"]
+    c.save()
