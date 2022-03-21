@@ -24,6 +24,7 @@ class PelisAdmin(ModelAdmin):
     # rather than under the default Snippets section.
     model = Pelicula
     search_fields = ('title', 'cast', 'year')
+    list_display = ('title', 'cast', 'year')
     menu_icon = 'media' 
     menu_order = 200  # will put in 3rd place (000 being 1st, 100 2nd)
 

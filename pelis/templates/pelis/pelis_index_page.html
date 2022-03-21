@@ -12,11 +12,17 @@
 
 
 {% block content %}
-<div class="container">
+
+<div class="container" style="position : relative;width : 2000px;height : 99.99%;margin : 0;
+padding : 0;">
     <h1 class="page-title">{{ page.title }}</h1><br>
 
     <p>Listado de las mejores 250 películas según IMDB:</p>
     <hr>
+
+    <div class="col-md-12"><br>
+        {% include "includes/pagination.html" with subpages=pelicula %}
+    </div>
 
     <table id="peliculas">
         <thead>
@@ -42,6 +48,17 @@
     </table>
 </div>
 
+<hr>
+{% if peliculas.paginator.count > 1 %}
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12"><br>
+                {% include "includes/pagination.html" with subpages=peliculas %}
+                </div>
+            </div>
+        </div>
+    {% endif %}
+</div>
 {% endblock %}
 
 {% block extra_js %}
