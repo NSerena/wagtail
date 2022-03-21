@@ -22,8 +22,10 @@ class CentroAdmin(ModelAdmin):
     # rather than under the default Snippets section.
     model = Centro
     search_fields = ('nombreCentro', 'tipoCentro', 'naturaleza')
+    list_display = ('nombreCentro', 'tipoCentro', 'naturaleza')
+    list_filter = ('naturaleza',)
     menu_icon = 'fa-suitcase'  # change as required
-    menu_order = 200  # will put in 3rd place (000 being 1st, 100 2nd)
+    menu_order = 200
 
 
 # When using a ModelAdminGroup class to group several ModelAdmin classes together,
