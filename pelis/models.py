@@ -69,7 +69,7 @@ class PelisIndexPage(Page):
     def paginate(self, request, peliculas, *args):
         page = request.GET.get('page')
 
-        paginator = Paginator(peliculas, 25)
+        paginator = Paginator(peliculas, 10)
 
         try:
             pages = paginator.page(page)
@@ -91,10 +91,10 @@ class PelisIndexPage(Page):
             peliculas = Pelicula.objects.filter(year__gte=1990, year__lt=2000)
             qs = f'decada={decada}'
         else:
-            peliculas = Pelicula.objects.all()
+            peliculas = Pelicula.objects.all().order_by('-rating')
             
 
-        context['peliculas'] = Pelicula.objects.all().order_by('-rating')
+        context['peliculas'] = self.paginate(request, peliculas)
         context['qs'] = qs
 
         

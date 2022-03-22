@@ -20,36 +20,30 @@ padding : 0;">
     <p>Listado de las mejores 250 películas según IMDB:</p>
     <hr>
 
-    <div class="col-md-12"><br>
-        {% include "includes/pagination.html" with subpages=pelicula %}
-    </div>
-
-    <table id="peliculas">
+    <table id="peliculas" style="width: 80%;">
         <thead>
             <tr>
+                <td>Posición</td>
                 <td>Título</td>
                 <td>Año</td>
-                <td>Posición</td>
-                <td></td>
+                <td>Portada</td>
             </tr>
         </thead>
         <tbody>
 
             {% for pelis in peliculas %}
             <tr>
+                <td>{{pelis.place}}</td>
                 <td>{{pelis.title}}</td>
                 <td>{{pelis.year}}</td>
-                <td>{{pelis.place}}</td>
                 <td><img src="{{pelis.imagen}}" alt="{{pelis.title}}"></td>
             </tr>
 
             {% endfor %}
         </tbody>
     </table>
-</div>
-
-<hr>
-{% if peliculas.paginator.count > 1 %}
+    <hr>
+    {% if peliculas.paginator.count > 1 %}
         <div class="container">
             <div class="row">
                 <div class="col-md-12"><br>
@@ -58,6 +52,7 @@ padding : 0;">
             </div>
         </div>
     {% endif %}
+</div>
 </div>
 {% endblock %}
 
